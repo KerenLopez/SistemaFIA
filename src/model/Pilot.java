@@ -11,15 +11,17 @@ public class Pilot{
 
 	private String name;
 	private int age;
+	private String team;
 	private int[] scores;
 
 	//Methods
 
 	//Builder method
-	public Pilot(String pName, int pAge, /*String pTeam*/ int[] pScores){
+	public Pilot(String pName, int pAge, String pTeam, int[] pScores){
 		name = pName;
 		age = pAge;
 		scores = pScores;
+		team = pTeam;
 	}
 	//End builder method
 
@@ -48,6 +50,14 @@ public class Pilot{
 
 	public void setAge(int pAge){
 		age =  pAge; 
+	}
+
+	public String getTeam(){
+		return team;
+	}
+
+	public void setTeam(String pTeam){
+		team = pTeam;
 	}
 
 	public int[] getScores(){

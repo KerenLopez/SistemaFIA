@@ -53,11 +53,11 @@ public class Main{
 					menu = false;
 					break;
 				case 3:	
-					System.out.println("Gracias por utilizar nuestra aplicacion");
+					System.out.println("\nGracias por utilizar nuestra aplicacion");
 					menu = false;
 					break;		
 				default:
-					System.out.println("Error, opcion no valida");
+					System.out.println("\nError, opcion no valida");
 					menu = false;
 					break;	    	
 			}
@@ -65,8 +65,8 @@ public class Main{
 	}	
 
 	public void createPilots(){
-		String namePilot;
-		int agePilot, nameTeam, quantity = mainChampionship.getRaces();
+		String namePilot, nameTeam, message = "";
+		int agePilot, quantity = mainChampionship.getRaces();
 		boolean encontro = false;
 		int[] pilotScores = new int [quantity];
 		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -81,25 +81,20 @@ public class Main{
 			}
 		} while(encontro);	
 		System.out.println("\nIngrese la edad del piloto: ");
-		agePilot = lector.nextInt();
-		/*System.out.println(
-			"Seleccione el equipo al que pertenece el piloto:\n"+
-			"1. Scuderia Ferrari\n"+ 
-			"2. Mclaren F1 Team\n"+ 
-			"3. Red Bull Racing\n"+
-			"4. Mercedes Amg\n"+ 
-			"5. Racing Point\n"+
-			"6. Alfa Romeo\n"+ 
-			"7. Renault\n"+ 
-			"8. Williams"+
-			"\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-		);
-		nameTeam = lector.nextInt();*/
+		agePilot = lector.nextInt();lector.nextLine();
+		do{
+			System.out.println("\nIngrese el equipo al que pertenece el piloto: Scuderia Ferrari, Mclaren F1 Team, Red Bull Racing, Mercedes Amg, Racing Point, Alfa Romeo, Renault, Williams");
+			nameTeam = lector.nextLine();
+			if(!nameTeam.equalsIgnoreCase("Scuderia Ferrari") && !nameTeam.equalsIgnoreCase("Mclaren F1 Team") && !nameTeam.equalsIgnoreCase("Red Bull Racing") && !nameTeam.equalsIgnoreCase("Mercedes Amg") && !nameTeam.equalsIgnoreCase("Racing Point") && !nameTeam.equalsIgnoreCase("Alfa Romeo") && !nameTeam.equalsIgnoreCase("Renault") && !nameTeam.equalsIgnoreCase("Williams")){
+				message = "\nEl equipo no existe, por favor digitelo nuevamente";
+				System.out.println(message);
+			}
+		} while(!nameTeam.equalsIgnoreCase("Scuderia Ferrari") && !nameTeam.equalsIgnoreCase("Mclaren F1 Team") && !nameTeam.equalsIgnoreCase("Red Bull Racing") && !nameTeam.equalsIgnoreCase("Mercedes Amg") && !nameTeam.equalsIgnoreCase("Racing Point") && !nameTeam.equalsIgnoreCase("Alfa Romeo") && !nameTeam.equalsIgnoreCase("Renault") && !nameTeam.equalsIgnoreCase("Williams"));		
 		for(int k=0; k<quantity; k++){
 			System.out.println("\nIngrese el tiempo obtenido por el piloto en el gran premio #"+(k+1));
 			pilotScores[k]= lector.nextInt();	
 		}
-		mainChampionship.addPilot(namePilot, agePilot, /*nameTeam*/ pilotScores);	
+		mainChampionship.addPilot(namePilot, agePilot,nameTeam,pilotScores);	
 	}
 
 	public void displayAverages(){
