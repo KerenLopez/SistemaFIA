@@ -1,9 +1,9 @@
 package model;
 
-enum Team{
+/*enum Team{
 
 	SCUDERIA_FERRARI, MCLAREN_F1_TEAM, RED_BULL_RACING, MERCEDES_AMG, RACING_POINT, ALFA_ROMEO, RENAULT, WILLIAMS;  
-}
+}*/
 
 public class Pilot{
 
@@ -16,7 +16,7 @@ public class Pilot{
 	//Methods
 
 	//Builder method
-	public Pilot(String pName, int pAge, String pTeam, int[] pScores){
+	public Pilot(String pName, int pAge, /*String pTeam*/ int[] pScores){
 		name = pName;
 		age = pAge;
 		scores = pScores;
@@ -25,7 +25,7 @@ public class Pilot{
 
 	public double calculateAverage(){
 		double sumScores = 0;
-		for(k=0;k<scores.length;k++){
+		for(int k=0;k<scores.length;k++){
 			sumScores += scores[k];
 		}
 		double averagePilot = (sumScores/scores.length);
@@ -38,7 +38,7 @@ public class Pilot{
 		return name;
 	}
 
-	public void setName(pName){
+	public void setName(String pName){
 		name = pName;
 	}
 
@@ -46,7 +46,7 @@ public class Pilot{
 		return age;
 	}
 
-	public void setAge(pAge){
+	public void setAge(int pAge){
 		age =  pAge; 
 	}
 
