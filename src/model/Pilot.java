@@ -1,9 +1,9 @@
 package model;
 
-/*enum Team{
+enum Team{
 
 	SCUDERIA_FERRARI, MCLAREN_F1_TEAM, RED_BULL_RACING, MERCEDES_AMG, RACING_POINT, ALFA_ROMEO, RENAULT, WILLIAMS;  
-}*/
+}
 
 public class Pilot{
 
@@ -24,15 +24,6 @@ public class Pilot{
 		team = pTeam;
 	}
 	//End builder method
-
-	public double calculateAverage(){
-		double sumScores = 0;
-		for(int k=0;k<scores.length;k++){
-			sumScores += scores[k];
-		}
-		double averagePilot = (sumScores/scores.length);
-		return averagePilot;
-	}
 
 	//Getters & Setters
 
@@ -67,4 +58,44 @@ public class Pilot{
 	public void setScores(int[] pScores){
 		scores = pScores;
 	}
+
+	//Methods
+
+	public double calculateAverage(){
+		double sumScores = 0;
+		for(int k=0;k<scores.length;k++){
+			sumScores += scores[k];
+		}
+		double averagePilot = (sumScores/scores.length);
+		return averagePilot;
+	}
+
+	public void addTeam(){
+		Team teamX = null;
+		if(getTeam().equalsIgnoreCase("Scuderia Ferrari")){
+			teamX = Team.SCUDERIA_FERRARI; 
+		} 
+		if(getTeam().equalsIgnoreCase("Mclaren F1 Team")){
+			teamX = Team.MCLAREN_F1_TEAM;
+		}
+		if(getTeam().equalsIgnoreCase("Red Bull Racing")){
+			teamX = Team.RED_BULL_RACING;
+		}
+		if(getTeam().equalsIgnoreCase("Mercedes Amg")){
+			teamX = Team.MERCEDES_AMG;
+		} 
+		if(getTeam().equalsIgnoreCase("Racing Point")){
+			teamX = Team.RACING_POINT;
+		} 
+		if(getTeam().equalsIgnoreCase("Alfa Romeo")){
+			teamX = Team.ALFA_ROMEO;
+		} 
+		if(getTeam().equalsIgnoreCase("Renault")){
+			teamX = Team.RENAULT;
+		}
+		if(getTeam().equalsIgnoreCase("Williams")){
+			teamX = Team.WILLIAMS;
+		}
+	}
+
 }
